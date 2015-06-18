@@ -4,14 +4,28 @@ export default Ember.Controller.extend({
   actions: {
     submit: function() {
       var songURL = this.get('suggestion');
-      var newSuggestion = this.store.createRecord('song', {
-        url: songURL
+
+      SC.initialize({
+        client_id: 'e0d5f2931e81cf14facf65268cd656e0'
       });
 
-      newSuggestion.save();
+      SC.get('/resolve', {url: songURL}, track => {
+        if (track.errors && track.errors.length) {
+           console.error("This track does not exist");
+        }
+        else {
+          var newSuggestion = this.store.createRecord('song', {
+            url: songURL
+          });
 
-      this.set('suggestion', '');
-      this.transitionToRoute('/');
+          newSuggestion.save();
+
+          this.set('suggestion', '');
+          this.transitionToRoute('/');
+
+        }
+      });
+      
     }
   }
 });
