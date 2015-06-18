@@ -1,0 +1,9 @@
+<form>
+  <div class="form-group">
+    <label for='suggestion'>Input a Soundcloud link:</label>
+    {{input value=suggestion id='suggestion' placeholder="Link"}}
+  </div>
+  <button class="btn btn-primary" {{action 'submit'}}>Send Song!</button>
+</form>
+
+{{outlet}}

@@ -1,0 +1,10 @@
+<p>
+  hi
+</p>
+<ul>
+  {{#each song in model}}
+    <li>{{#link-to 'song' song.id}}Your song url is: {{song.url}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
