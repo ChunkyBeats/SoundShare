@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  clearErrors: function() {
+    this.set('errors', null);
+  }.observes('suggestion'),
   actions: {
     submit: function() {
       var songURL = this.get('suggestion');
@@ -11,7 +14,7 @@ export default Ember.Controller.extend({
 
       SC.get('/resolve', {url: songURL}, track => {
         if (track.errors && track.errors.length) {
-           console.error("This track does not exist");
+          this.set('errors', [{attr: "url", message: "Invalid SoundCloud URL"}]);
         }
         else {
           var newSuggestion = this.store.createRecord('song', {
@@ -25,7 +28,7 @@ export default Ember.Controller.extend({
 
         }
       });
-      
+
     }
   }
 });

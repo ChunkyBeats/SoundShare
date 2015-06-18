@@ -2,6 +2,11 @@
   <div class="form-group">
     <label for='suggestion'>Input a Soundcloud link:</label>
     {{input value=suggestion id='suggestion' placeholder="Link"}}
+    {{#if errors}}
+      {{#each error in errors}}
+        <p>{{error.message}}</p>
+      {{/each}}
+    {{/if}}
   </div>
   <button class="btn btn-primary" {{action 'submit'}}>Send Song!</button>
 </form>
