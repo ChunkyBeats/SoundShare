@@ -18,13 +18,17 @@ export default Ember.Controller.extend({
         }
         else {
           var newSuggestion = this.store.createRecord('song', {
-            url: songURL
+            url: track.permalink_url,
+            artist: track.user.username,
+            title: track.title
           });
 
+          // trackInfo = SC.get('/resolve', {url: songURL+'#client_id=e0d5f2931e81cf14facf65268cd656e0'});
+          // newSuggestion.set('songName', track.title);
           newSuggestion.save();
-
           this.set('suggestion', '');
           this.transitionToRoute('/');
+
 
         }
       });
