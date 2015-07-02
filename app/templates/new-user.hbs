@@ -1,0 +1,11 @@
+<form>
+  <div class="form-group">
+    <label for='addUserName'>Create User Name:</label>
+    {{input value=addUserName id='addUserName' placeholder="User Name"}}
+    <label for='addPass'>Create Password:</label>
+    {{input value=addPass id='addPass' placeholder="Password"}}
+    <label for='addPassConfirm'>Confirm Password:</label>
+    {{input value=addPassConfirm id='addPassConfirm' placeholder="Confirm Password"}}
+  </div>
+  <button class="btn btn-primary" {{action 'submit'}}>Create Account!</button>
+</form>

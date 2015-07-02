@@ -9,7 +9,8 @@ export default Ember.Controller.extend({
       var songURL = this.get('suggestion');
 
       SC.initialize({
-        client_id: 'e0d5f2931e81cf14facf65268cd656e0'
+        client_id: 'e0d5f2931e81cf14facf65268cd656e0',
+        redirect_uri: "/songs"
       });
 
       SC.get('/resolve', {url: songURL}, track => {
