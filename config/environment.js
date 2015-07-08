@@ -19,13 +19,14 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+      'default-src': "object-src",
+      'object-src': " ",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.soundcloud.com",
       'font-src': "'self'",
-      'connect-src': "'self'",
+      'connect-src': "'self' wss://*.firebaseio.com http://*.soundcloud.com",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline'",
-      'frame-src': "'none'"
+      'frame-src': "https://*.soundcloud.com"
     }
   };
 

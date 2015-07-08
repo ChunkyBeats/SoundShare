@@ -20,6 +20,12 @@
     <script src="assets/vendor.js"></script>
     <script src="assets/sound-share.js"></script>
     <script src="https://connect.soundcloud.com/sdk-2.0.0.js"></script>
+    <script>
+      SC.initialize({
+        client_id: "e0d5f2931e81cf14facf65268cd656e0",
+        redirect_uri: "http://google.com",
+      });
+    </script>
 
     {{content-for 'body-footer'}}
   </body>

@@ -1,3 +1,9 @@
 body {
   margin-top: 70px;
 }
+
+.connect {
+  padding-top: 15px;
+  padding-right: 10px;
+  cursor: pointer;
+}
