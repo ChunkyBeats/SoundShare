@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   //
   actions: {
     submit: function() {
-      var userName = this.get('addUser'), password = this.get('addPass'),
+      var userName = this.get('addUserName'), password = this.get('addPass'),
       passwordConfirm = this.get('addPassConfirm');
 
       if (password === passwordConfirm) {     // CHANGE LATER TO != FOR PASS CONFIRM
