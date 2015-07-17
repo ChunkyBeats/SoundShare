@@ -16,7 +16,8 @@ export default Ember.Controller.extend({
           var newSuggestion = this.store.createRecord('song', {
             url: track.permalink_url,
             artist: track.user.username,
-            title: track.title
+            title: track.title,
+            track_id: track.id
           });
 
           // trackInfo = SC.get('/resolve', {url: songURL+'#client_id=e0d5f2931e81cf14facf65268cd656e0'});

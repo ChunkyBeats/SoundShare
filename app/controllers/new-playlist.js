@@ -11,7 +11,10 @@ export default Ember.Controller.extend({
 
       var playlistName = this.get('title');
       SC.post('/playlists', {
-        playlist: { title: playlistName, tracks: [] }
+       playlist: { title: playlistName, tracks: [] }
+      },
+      function(response) {
+        console.log(response)
       });
     }
   }
