@@ -4,18 +4,20 @@ export default Ember.Controller.extend({
   actions: {
     submit: function() {
 
-      var newPlaylist = this.store.createRecord('playlist');
       var playlistName = this.get('title');
+
       SC.post('/playlists', {
-       playlist: { title: playlistName, tracks: [] }
+        playlist: { title: playlistName, tracks: [] }
       }, function(response) {
-          newPlaylist.set('name', playlistName);
-          newPlaylist.set('playlist_id', response.id);
-          newPlaylist.set('playlist_uri', response.uri);
-        }
+        var newPlaylist = this.store.createRecord('playlist', {
+          name: playlistName,
+          playlist_id: response.id,
+          playlist_uri: response.uri
+        });
+        newPlaylist.save();
+        this.transitionToRoute('songs');
+        }.bind(this)
       );
-      newPlaylist.save();
-      this.transitionToRoute('songs');
     }
   }
 });
