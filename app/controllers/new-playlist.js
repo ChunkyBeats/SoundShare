@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
     submit: function() {
 
       var playlistName = this.get('title');
+      window.SC.storage().getItem('SC.accessToken');
 
       SC.post('/playlists', {
         playlist: { title: playlistName, tracks: [] }

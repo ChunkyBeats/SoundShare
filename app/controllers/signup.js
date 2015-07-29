@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
       var self = this;
       var signup_email = this.get("email"), signup_password = this.get("password"),
         signup_confirm = this.get("password_confirm");
-      if (this.get("password") === this.get("password_confirm")) {
+      if (signup_password === signup_confirm) {
         this.get('auth').signUp(signup_email, signup_password, function(error, userData) {
           if (error) {
             Ember.error(error);
@@ -18,10 +18,9 @@ export default Ember.Controller.extend({
               email: signup_email,
               soundcloud_token: authExtra.soundcloudToken,
               soundcloud_username: authExtra.soundcloudUsername
-
             });
             new_user.save();
-            self.transitionToRoute('songs');
+            self.transitionToRoute('login');
           }
 
         });
