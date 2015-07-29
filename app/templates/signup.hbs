@@ -1,0 +1,11 @@
+<form>
+  <div class="form-group">
+    <label for='email'>Enter Your Email Address:</label>
+    {{input value=email id='email' placeholder="Email"}}
+    <label for="password">Create Password:</label>
+    {{input value=password id='password' type="password" placeholder="********"}}
+    <label for="password_confirm">Confirm Password:</label>
+    {{input value=password_confirm id='password_confirm' type="password" placeholder="********"}}
+  </div>
+  <button class="btn btn-primary" {{action 'submit'}}>Create Playlist!</button>
+</form>

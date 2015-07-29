@@ -1,0 +1,9 @@
+<form>
+  <div class="form-group">
+    <label for='email'>Enter Email Address:</label>
+    {{input value=email id='email' placeholder="Email"}}
+    <label for="password">Enter Password:</label>
+    {{input value=password id='password' type="password" placeholder="********"}}
+  </div>
+  <button class="btn btn-primary" {{action 'login'}}>Log In to SoundShare</button>
+</form>

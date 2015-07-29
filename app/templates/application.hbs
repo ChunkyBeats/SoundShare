@@ -17,6 +17,13 @@
       </ul>
       <div class="pull-right connect">
         <img src="http://connect.soundcloud.com/2/btn-connect-m.png" {{action "logIn"}}>
+        <ul class="nav navbar-nav">
+          {{#if auth.authed}}
+            <li>Welcome {{auth.current_user.soundcloud_username}}</li>
+          {{else}}
+            <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+          {{/if}}
+        </ul>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'object-src': " ",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.soundcloud.com",
       'font-src': "'self'",
-      'connect-src': "'self' wss://*.firebaseio.com http://*.soundcloud.com",
+      'connect-src': "'self' wss://*.firebaseio.com http://*.soundcloud.com https://*.soundcloud.com",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline'",
       'frame-src': "https://*.soundcloud.com"

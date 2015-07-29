@@ -12,6 +12,8 @@ Router.map(function() {
   });
   this.route('new-song');
   this.route('new-playlist');
+  this.route('login');
+  this.route('signup');
 
 });
 
