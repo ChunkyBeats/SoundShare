@@ -1,6 +1,6 @@
 export default {
   name: 'application',
-  initialize: function() {
+  initialize: function(container, application) {
     var auth_user = localStorage.getItem('session_user');
     if (auth_user) {
       var sc_access = JSON.parse(auth_user).soundcloud_token;
