@@ -15,13 +15,14 @@
         <li>{{#link-to 'songs'}}View Suggestions{{/link-to}}</li>
         <li>{{#link-to 'new-song'}}Suggest a song{{/link-to}}</li>
       </ul>
-      <div class="pull-right connect">
-        <img src="http://connect.soundcloud.com/2/btn-connect-m.png" {{action "logIn"}}>
+      <div class="pull-right">
         <ul class="nav navbar-nav">
           {{#if auth.authed}}
             <li>Welcome {{auth.current_user.soundcloud_username}}</li>
+            <a {{action 'signOut'}}>Sign Out</a>
           {{else}}
             <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+            <li class="connect"><span><img src="http://connect.soundcloud.com/2/btn-connect-m.png" {{action "logIn"}}></span></li>
           {{/if}}
         </ul>
       </div>
