@@ -19,9 +19,10 @@
         <ul class="nav navbar-nav">
           {{#if auth.authed}}
             <li>Welcome {{auth.current_user.soundcloud_username}}</li>
-            <a {{action 'signOut'}}>Sign Out</a>
+            <button {{action 'logOut'}}>Sign Out</button>
           {{else}}
             <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+            <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
             <li class="connect"><span><img src="http://connect.soundcloud.com/2/btn-connect-m.png" {{action "logIn"}}></span></li>
           {{/if}}
         </ul>

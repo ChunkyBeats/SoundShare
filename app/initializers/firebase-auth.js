@@ -34,6 +34,8 @@ var auth = Ember.Object.extend({
   },
   logout: function() {
     this.set('authed', false);
+    localStorage.clear();
+    this.transitionToRoute('/');
   },
   setCurrentUser: function(user) {
     this.set('current_user', user);
