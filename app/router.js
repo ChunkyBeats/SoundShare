@@ -15,6 +15,8 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
 
+  this.resource('playlist', {path: '/:playlist_id'});
+
 });
 
 export default Router;

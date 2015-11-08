@@ -1,6 +1,14 @@
 <form>
   <div class="form-group">
-    <label for='title'>Create New Playlist:</label>
+    <label for="playlist-title">Create Recommendations</label>
+    {{input value=playlist-title id='playlist-title' placeholder="TEMP"}}
+  </div>
+  <button class="btn btn-success" {{action 'create'}}>Let's Begin!</button>
+</form>
+
+<form>
+  <div class="form-group">
+    <label for='title'>Create New Playlist on SoundCloud:</label>
     {{input value=title id='title' placeholder="Playlist Name"}}
   </div>
   <button class="btn btn-primary" {{action 'submit'}}>Create Playlist!</button>

@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
             soundcloudUsername: me.username,
             soundcloudToken: SC.accessToken()
           });
+          // self.current_user.set('verified', true);
           self.transitionToRoute('signup');
         });
       });
