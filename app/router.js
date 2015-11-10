@@ -15,7 +15,7 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
 
-  this.resource('playlist', {path: '/:playlist_id'});
+  this.resource('playlist', {path: 'playlists/:playlist_id'});
 
 });
 

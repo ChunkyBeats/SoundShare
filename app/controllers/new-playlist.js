@@ -4,7 +4,8 @@ export default Ember.Controller.extend({
   actions: {
     create: function() {
       var newPlaylist = this.store.createRecord('playlist', {
-        name: this.get('playlist-title')
+        name: this.get('playlist-title'),
+        user: this.get('current_user.uid')
       });
       newPlaylist.save().then((playlist) => {
         this.transitionToRoute('playlist', playlist);

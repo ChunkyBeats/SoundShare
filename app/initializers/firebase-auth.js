@@ -29,6 +29,7 @@ var auth = Ember.Object.extend({
       callback(error, authData);
       if (!error) {
         this.set('authed', true);
+        console.log(this.get('firebase').getAuth());
       }
     }.bind(this));
   },
