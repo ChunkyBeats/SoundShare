@@ -8,7 +8,8 @@ export default Ember.Controller.extend({
         user: this.get('auth').current_user
       });
       newPlaylist.save().then((playlist) => {
-        this.transitionToRoute('playlist', playlist);
+        console.log(playlist);
+        this.transitionToRoute('playlist', { playlist_id: playlist.id });
       });
     },
 
