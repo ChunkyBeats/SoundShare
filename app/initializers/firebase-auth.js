@@ -5,6 +5,7 @@ import config from '../config/environment';
 
 var auth = Ember.Object.extend({
   authed: false,
+  currentUser: null,
   extra: {},
   init: function() {
     var firebase = new Firebase(config.firebase);
