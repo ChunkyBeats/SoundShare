@@ -5,7 +5,6 @@ import config from '../config/environment';
 
 var auth = Ember.Object.extend({
   authed: false,
-  currentUser: null,
   extra: {},
   init: function() {
     var firebase = new Firebase(config.firebase);
@@ -30,14 +29,15 @@ var auth = Ember.Object.extend({
       callback(error, authData);
       if (!error) {
         this.set('authed', true);
-        console.log(this.get('firebase').getAuth());
+        // console.log(this.get('firebase').getAuth());
+        console.log("Authenticated successfully with payload: ", authData);
       }
     }.bind(this));
   },
   logout: function() {
+    this.get('firebase').unauth();
     this.set('authed', false);
     localStorage.clear();
-    this.transitionToRoute('/');
   },
   setCurrentUser: function(user) {
     this.set('current_user', user);
