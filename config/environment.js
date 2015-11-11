@@ -21,9 +21,9 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "object-src",
       'object-src': "'self' ''",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.soundcloud.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.soundcloud.com https://*.firebaseio.com",
       'font-src': "'self'",
-      'connect-src': "'self' wss://*.firebaseio.com http://*.soundcloud.com https://*.soundcloud.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.firebase.com http://*.soundcloud.com https://*.soundcloud.com",
       'img-src': "'self' http://*.soundcloud.com",
       'style-src': "'self' 'unsafe-inline'",
       'frame-src': "https://*.soundcloud.com"
