@@ -22,7 +22,8 @@ var auth = Ember.Object.extend({
     }.bind(this));
   },
   login: function(email, password, callback) {
-    this.get('firebase').authWithPassword({
+    var ref = this.get('firebase');
+    ref.authWithPassword({
       email: email,
       password: password
     }, function(error, authData) {
@@ -30,6 +31,7 @@ var auth = Ember.Object.extend({
       if (!error) {
         this.set('authed', true);
         // console.log(this.get('firebase').getAuth());
+
         console.log("Authenticated successfully with payload: ", authData);
       }
     }.bind(this));
@@ -41,6 +43,31 @@ var auth = Ember.Object.extend({
   },
   setCurrentUser: function(user) {
     this.set('current_user', user);
+  },
+  storeUserData: function() {
+    var authData = this.get('firebase').getAuth();
+    var ref = this.get('firebase');
+    console.log(authData);
+    ref.onAuth(function(authData) {
+      if (authData) {
+        // save user profile into database
+        ref.child("users").child(authData.uid).set({
+          provider: authData.provider,
+          name: getName(authData)
+        });
+      }
+    });
+
+    function getName(authData) {
+      switch(authData.provider) {
+        case 'password':
+          return authData.password.email.replace(/@.*/, '');
+        case 'twitter':
+          return authData.twitter.displayName;
+        case 'facebook':
+          return authData.facebook.displayName;
+      }
+    }
   }
 });
 

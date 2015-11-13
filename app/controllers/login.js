@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
             SC.accessToken(user.get('soundcloud_token'));
             console.log(user);
             this.get('auth').setCurrentUser(user);
-            localStorage.setItem('session_user', JSON.stringify(user));
+            this.get('auth').storeUserData();
+            // localStorage.setItem('session_user', JSON.stringify(user));
             this.transitionToRoute('songs');
           }.bind(this));
         }
