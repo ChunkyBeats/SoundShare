@@ -9,6 +9,17 @@ var auth = Ember.Object.extend({
   init: function() {
     var firebase = new Firebase(config.firebase);
     this.set('firebase', firebase);
+
+    var user = firebase.getAuth();
+    console.log("User : ", user);
+
+    if (user) {
+      this.storeUserData(user);
+      console.log('Yep');
+      this.setCurrentUser(user);
+      this.set('authed', true);
+    }
+
   },
   signUp: function(username, password, callback) {
     this.get('firebase').createUser({
@@ -32,6 +43,7 @@ var auth = Ember.Object.extend({
         this.set('authed', true);
         // console.log(this.get('firebase').getAuth());
 
+        this.storeUserData(authData);
         console.log("Authenticated successfully with payload: ", authData);
       }
     }.bind(this));
@@ -44,10 +56,10 @@ var auth = Ember.Object.extend({
   setCurrentUser: function(user) {
     this.set('current_user', user);
   },
-  storeUserData: function() {
-    var authData = this.get('firebase').getAuth();
+  storeUserData: function(authData) {
+    // var authData = this.get('firebase').getAuth();
     var ref = this.get('firebase');
-    console.log(authData);
+    console.log("Stored : ", authData);
     ref.onAuth(function(authData) {
       if (authData) {
         // save user profile into database
