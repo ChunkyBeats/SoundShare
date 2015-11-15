@@ -3,14 +3,25 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     create: function() {
-      var newPlaylist = this.store.createRecord('playlist', {
-        name: this.get('playlist-title'),
-        user: this.get('auth').current_user
+      var name = this.get('playlist-title');
+
+      this.store.find('user').then(users => {
+        var user = users.findBy('uid', this.get('auth').current_uid),
+            newPlaylist = this.store.createRecord('playlist', {
+              name: name,
+              users: [user]
+            });
+
+        newPlaylist.save().then((playlist) => {
+          user.get('playlists').then(playlists => {
+            playlists.pushObject(playlist);
+            user.save().then(() => {
+              this.transitionToRoute('playlist', { playlist_id: playlist.id });
+            });
+          });
+        });
       });
-      newPlaylist.save().then((playlist) => {
-        console.log(playlist);
-        this.transitionToRoute('playlist', { playlist_id: playlist.id });
-      });
+
     },
 
     submit: function() {

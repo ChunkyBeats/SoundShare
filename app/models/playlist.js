@@ -5,7 +5,12 @@ export default DS.Model.extend({
   playlist_id: DS.attr('number'),
   playlist_uri: DS.attr('string'),
 
-  user: DS.belongsTo('user'),
-  songs: DS.hasMany('song', {async: true})
+  users: DS.hasMany('user', {
+    inverse: 'playlists'
+  }),
+  // contributor: DS.hasMany('users'),
+  songs: DS.hasMany('song', {
+    async: true
+  })
 
 });

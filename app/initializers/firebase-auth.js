@@ -14,9 +14,7 @@ var auth = Ember.Object.extend({
     console.log("User : ", user);
 
     if (user) {
-      this.storeUserData(user);
-      console.log('Yep');
-      this.setCurrentUser(user);
+      this.setCurrentUID(user.uid);
       this.set('authed', true);
     }
 
@@ -28,6 +26,7 @@ var auth = Ember.Object.extend({
     }, function(error, userData) {
       callback(error, userData);
       if (!error) {
+
         this.set('authed', true);
       }
     }.bind(this));
@@ -41,10 +40,10 @@ var auth = Ember.Object.extend({
       callback(error, authData);
       if (!error) {
         this.set('authed', true);
-        // console.log(this.get('firebase').getAuth());
-
-        this.storeUserData(authData);
-        console.log("Authenticated successfully with payload: ", authData);
+        // // console.log(this.get('firebase').getAuth());
+        //
+        // this.storeUserData(authData);
+        // console.log("Authenticated successfully with payload: ", authData);
       }
     }.bind(this));
   },
@@ -53,8 +52,8 @@ var auth = Ember.Object.extend({
     this.set('authed', false);
     localStorage.clear();
   },
-  setCurrentUser: function(user) {
-    this.set('current_user', user);
+  setCurrentUID: function(uid) {
+    this.set('current_uid', uid);
   },
   storeUserData: function(authData) {
     // var authData = this.get('firebase').getAuth();
@@ -85,6 +84,7 @@ var auth = Ember.Object.extend({
 
 export default {
   name: 'FirebaseAuth',
+  after: 'store',
   initialize: function(container, app) {
     Ember.debug("hello");
     app.register('auth:main', auth, {singleton: true});

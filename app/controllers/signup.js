@@ -13,8 +13,9 @@ export default Ember.Controller.extend({
           }
           if (userData) {
             var authExtra = self.get('auth.extra');
+            debugger;
             var new_user = self.store.createRecord('user', {
-              auth_uid: userData.uid,
+              uid: userData.uid,
               email: signup_email,
               soundcloud_token: authExtra.soundcloudToken,
               soundcloud_username: authExtra.soundcloudUsername

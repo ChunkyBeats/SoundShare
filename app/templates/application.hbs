@@ -15,7 +15,7 @@
         <li>{{#link-to 'songs'}}View Suggestions{{/link-to}}</li>
         <li>{{#link-to 'new-song'}}Suggest a song{{/link-to}}</li>
         {{#if auth.authed}}
-          <li>Your Recommendations</li>
+          <li>{{#link-to 'playlists'}}Your Recommendations{{/link-to}}</li>
         {{/if}}
       </ul>
       <div class="pull-right">
