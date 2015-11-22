@@ -25,9 +25,8 @@ var auth = Ember.Object.extend({
       password: password
     }, function(error, userData) {
       callback(error, userData);
-      if (!error) {
-
-        this.set('authed', true);
+      if (error) {
+        console.log("Error : ", error);
       }
     }.bind(this));
   },

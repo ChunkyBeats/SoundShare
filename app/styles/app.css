@@ -12,3 +12,7 @@ body {
   color: white;
   cursor: default;
 }
+
+.navbar-right {
+    display: inline-block;
+}

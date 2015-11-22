@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
           self.transitionToRoute('signup');
         });
       });
+
     },
     logOut: function() {
       this.get('auth').logout();

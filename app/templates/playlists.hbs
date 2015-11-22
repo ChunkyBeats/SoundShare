@@ -1,5 +1,5 @@
 <h4>Playlists</h4>
 
 {{#each playlist in model}}
-  <li>{{playlist.name}}</li>
+  <li>{{#link-to 'playlist' playlist.id}}{{playlist.name}}{{/link-to}}</li>
 {{/each}}

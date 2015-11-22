@@ -11,25 +11,27 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>{{#link-to 'new-playlist'}}Create Playlist{{/link-to}}</li>
+        {{#if auth.authed}}
+          <li>{{#link-to 'new-playlist'}}Create Playlist{{/link-to}}</li>
+        {{/if}}
         <li>{{#link-to 'songs'}}View Suggestions{{/link-to}}</li>
         <li>{{#link-to 'new-song'}}Suggest a song{{/link-to}}</li>
         {{#if auth.authed}}
           <li>{{#link-to 'playlists'}}Your Recommendations{{/link-to}}</li>
         {{/if}}
       </ul>
-      <div class="pull-right">
-        <ul class="nav navbar-nav">
+      <!-- <div class="pull-right"> -->
+        <ul class="nav navbar-nav navbar-right">
           {{#if auth.authed}}
-            <li>Welcome {{auth.current_user.soundcloud_username}}</li>
-            <button {{action 'logOut'}}>Sign Out</button>
+            <li style="color: white; text-align: center;">Welcome {{auth.current_user.soundcloud_username}}</li>
+            <button class="btn btn-warning" {{action 'logOut'}}>Sign Out</button>
           {{else}}
             <li>{{#link-to 'login'}}Login{{/link-to}}</li>
             <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
             <li class="connect"><span><img src="http://connect.soundcloud.com/2/btn-connect-m.png" {{action "logIn"}}></span></li>
           {{/if}}
         </ul>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </nav>
