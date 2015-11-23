@@ -16,7 +16,6 @@ export default Ember.Controller.extend({
           soundcloud_user = me.username;
           soundcloud_token = SC.accessToken();
 
-
           var current_user = self.store.find('user').then(users => {
             return users.findBy('uid', self.get('auth').current_uid);
           }).then(function(user) {
@@ -24,12 +23,9 @@ export default Ember.Controller.extend({
             user.set('soundcloud_username', soundcloud_user);
             user.set('verified', true);
 
-          debugger;
-
             user.save();
             self.transitionToRoute('/');
           });
-          // current_user.save();
         });
       });
     }
