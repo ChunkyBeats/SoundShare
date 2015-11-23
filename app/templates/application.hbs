@@ -20,18 +20,16 @@
           <li>{{#link-to 'playlists'}}Your Recommendations{{/link-to}}</li>
         {{/if}}
       </ul>
-      <!-- <div class="pull-right"> -->
         <ul class="nav navbar-nav navbar-right">
           {{#if auth.authed}}
-            <li style="color: white; text-align: center;">Welcome {{auth.current_user.soundcloud_username}}</li>
-            <button class="btn btn-warning" {{action 'logOut'}}>Sign Out</button>
+            <li style="color: white; text-align: center;">{{#link-to 'user' model.id}}Welcome {{model.email}}{{/link-to}}</li>
+            <li><button class="btn btn-warning" {{action 'logOut'}}>Sign Out</button></li>
           {{else}}
             <li>{{#link-to 'login'}}Login{{/link-to}}</li>
             <li>{{#link-to 'signup'}}Sign Up{{/link-to}}</li>
             <li class="connect"><span><img src="http://connect.soundcloud.com/2/btn-connect-m.png" {{action "logIn"}}></span></li>
           {{/if}}
         </ul>
-      <!-- </div> -->
     </div>
   </div>
 </nav>

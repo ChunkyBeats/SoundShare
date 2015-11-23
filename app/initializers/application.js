@@ -1,10 +1,9 @@
 export default {
   name: 'application',
   initialize: function(container, application) {
-    // var auth_user = localStorage.getItem('session_user') ? localStorage.getItem('session_user') : null;
-    // if (localStorage.getItem('session_user')) {
-    //   var sc_access = JSON.parse(localStorage.getItem('session_user')).soundcloud_token;
-    //   window.SC.storage().setItem('SC.accessToken', sc_access);
-    // }
+
+    // var userAuthed = this.store.find('user').then(users => {
+    //   return users.findBy('uid', this.get('auth').current_uid).get('playlists');
+    // });
   }
 };

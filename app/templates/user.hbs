@@ -1,1 +1,7 @@
-{{outlet}}
+<h3>Hello {{model.email}}</h3>
+
+<p>E-Mail address : {{model.email}}</p>
+<p>You verified SoundShare to access SoundCloud? <strong>{{model.verified}}</strong></p>
+{{#if model.verified}}
+  <p>SoundCloud Username : {{model.soundcloud_username}}</p>
+{{/if}}

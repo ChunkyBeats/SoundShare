@@ -15,8 +15,11 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
 
-  this.resource('playlists');
-  this.resource('playlist', {path: 'playlists/:playlist_id'});
+  this.resource('user', {path: 'users/:uid'});
+
+  this.resource('playlists', function() {
+    this.resource('playlist', {path: 'playlists/:playlist_id'});
+  });
 
 });
 
