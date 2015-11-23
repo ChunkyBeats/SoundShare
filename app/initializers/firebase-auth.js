@@ -19,10 +19,12 @@ var auth = Ember.Object.extend({
     }
 
   },
-  signUp: function(username, password, callback) {
+  signUp: function(username, email, password, callback) {
     this.get('firebase').createUser({
-      email: username,
-      password: password
+      username: username,
+      email: email,
+      password: password,
+      created_on: new Date()
     }, function(error, userData) {
       callback(error, userData);
       if (error) {

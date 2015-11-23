@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
           user.get('playlists').then(playlists => {
             playlists.pushObject(playlist);
             user.save().then(() => {
-              this.transitionToRoute('playlist', { playlist_id: playlist.id });
+              this.transitionToRoute('playlists');
             });
           });
         });

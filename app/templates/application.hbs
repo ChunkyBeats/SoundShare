@@ -22,7 +22,7 @@
       </ul>
         <ul class="nav navbar-nav navbar-right">
           {{#if auth.authed}}
-            <li style="color: white; text-align: center;">{{#link-to 'user' model.id}}Welcome {{model.email}}{{/link-to}}</li>
+            <li style="color: white; text-align: center;">{{#link-to 'user' model.id}}Welcome {{model.username}}{{/link-to}}</li>
             <li><button class="btn btn-warning" {{action 'logOut'}}>Sign Out</button></li>
           {{else}}
             <li>{{#link-to 'login'}}Login{{/link-to}}</li>
