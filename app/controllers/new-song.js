@@ -1,9 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  needs: ['new-song'],
+  selectedUser: null,
+
   clearErrors: function() {
     this.set('errors', null);
   }.observes('suggestion'),
+
   actions: {
     submit: function() {
       var songURL = this.get('suggestion');

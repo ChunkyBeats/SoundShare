@@ -1,4 +1,26 @@
-{{view "select" content=model optionValuePath="content.id" optionLabelPath="content.username"}}
+<div class="form-group">
+  <label class="control-label">User : </label>
+  {{view "select"
+    content=model
+    selection=selectedUser
+    optionValuePath="content.id"
+    optionLabelPath="content.username"
+    prompt="Select a User"
+  }}
+</div>
+
+<p>Selected User : {{controllers.new-song.selectedUser.username}}</p>
+
+<div class="form-group">
+  <label class="control-label">Playlist : </label>
+  {{view "select"
+    content=selectedUser.playlists
+    optionValuePath="selectedUser.playlists.id"
+    optionalLabelPath="selectedUser.playlists.name"
+    prompt="Select a Playlist"
+  }}
+</div>
+
 
 <form>
   <div class="form-group">
