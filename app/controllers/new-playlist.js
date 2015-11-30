@@ -7,14 +7,14 @@ export default Ember.Controller.extend({
 
       this.store.find('user').then(users => {
         var user = users.findBy('uid', this.get('auth').current_uid),
-            newPlaylist = this.store.createRecord('playlist', {
-              name: name,
-              users: [user]
-            });
+          newPlaylist = this.store.createRecord('playlist', {
+            name: name,
+            users: [user]
+          });
 
         newPlaylist.save().then((playlist) => {
           user.get('playlists').then(playlists => {
-            playlists.pushObject(playlist);
+            playlists.pushObject(newPlaylist);
             user.save().then(() => {
               this.transitionToRoute('playlists');
             });

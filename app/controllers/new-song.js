@@ -3,6 +3,19 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ['new-song'],
   selectedUser: null,
+  userPlaylists: null,
+
+  setUserPlaylists: function() {
+    Ember.run.once(this, 'getPlaylists');
+
+  }.observes('selectedUser'),
+
+  getPlaylists: function() {
+    this.set('userPlaylists', this.store.find('playlist').then(playlists => {
+      debugger;
+      return playlists.findBy('users', this.selectedUser.id);
+    }.bind(this)));
+  },
 
   clearErrors: function() {
     this.set('errors', null);

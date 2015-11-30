@@ -6,7 +6,8 @@ export default DS.Model.extend({
   playlist_uri: DS.attr('string'),
 
   users: DS.hasMany('user', {
-    inverse: 'playlists'
+    inverse: 'playlists',
+    async: true
   }),
   // contributor: DS.hasMany('users'),
   songs: DS.hasMany('song', {
