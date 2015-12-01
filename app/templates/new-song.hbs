@@ -1,3 +1,5 @@
+<h4><strong>Step 1 - Select User :</strong></h4>
+
 <div class="form-group">
   <label class="control-label">User : </label>
   {{view "select"
@@ -9,17 +11,27 @@
   }}
 </div>
 
-<p>Selected User : {{controllers.new-song.selectedUser.username}}</p>
+{{#if selectedUser}}
+  <h4><strong>Step 2 - Select One of Their Playlists To Add To :</strong></h4>
+{{else}}
+  <h4>Step 2 - Select One of Their Playlists To Add To :</h4>
+{{/if}}
+
 <div class="form-group">
   <label class="control-label">Playlist : </label>
   {{view "select"
     content=userPlaylists
+    selection=selectedPlaylist
     optionValuePath="userPlaylists.id"
     optionLabelPath="content.name"
     prompt="Select a Playlist"
   }}
 </div>
-
+{{#if selectedPlaylist}}
+  <h4><strong>Step 3 - Input Link to SoundCloud Song :</strong></h4>
+{{else}}
+  <h4>Step 3 - Input Link to SoundCloud Song :</h4>
+{{/if}}
 <form>
   <div class="form-group">
     <label for='suggestion'>Input a Soundcloud link:</label>

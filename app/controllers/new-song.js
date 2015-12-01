@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
   needs: ['new-song'],
   selectedUser: null,
   userPlaylists: null,
+  selectedPlaylist: null,
 
   setUserPlaylists: function() {
     Ember.run.once(this, 'getPlaylists');
@@ -12,7 +13,6 @@ export default Ember.Controller.extend({
 
   getPlaylists: function() {
     this.store.find('playlist').then(playlists => {
-      debugger;
       var queryPlaylists = [];
       playlists.content.filter(function(playlist) {
         if (playlist.get('users').content.currentState[0].get('id') === this.selectedUser.id) {
