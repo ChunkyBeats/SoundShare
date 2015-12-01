@@ -11,11 +11,24 @@ export default Ember.Controller.extend({
   }.observes('selectedUser'),
 
   getPlaylists: function() {
-    this.set('userPlaylists', this.store.find('playlist').then(playlists => {
+    this.store.find('playlist').then(playlists => {
       debugger;
-      return playlists.findBy('users', this.selectedUser.id);
-    }.bind(this)));
+      var queryPlaylists = [];
+      playlists.content.filter(function(playlist) {
+        if (playlist.get('users').content.currentState[0].get('id') === this.selectedUser.id) {
+          queryPlaylists.push(playlist);
+        }
+      }.bind(this));
+      this.set('userPlaylists', queryPlaylists);
+    }.bind(this));
   },
+
+  // getPlaylists: function() {
+  //   this.get('auth').get('firebase').child('playlists').on('value', function(snapshot) {
+  //     debugger;
+  //     console.log(snapshot);
+  //   });
+  // },
 
   clearErrors: function() {
     this.set('errors', null);
