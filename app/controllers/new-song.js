@@ -50,12 +50,11 @@ export default Ember.Controller.extend({
               artist: track.user.username,
               title: track.title,
               track_id: track.id,
-              recommended_by: current_user.name,
+              recommended_by: user.get('username'),
               recommended_on: new Date()
             });
 
             newSuggestion.save().then((suggestion) => {
-              debugger;
               this.selectedPlaylist.get('songs').then((songs) => {
                 songs.pushObject(newSuggestion);
                 this.selectedPlaylist.save().then(() => {

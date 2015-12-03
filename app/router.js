@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('songs', {path: '/'}, function() {
+  this.resource('welcome', {path: '/'});
+
+  this.resource('songs', {path: '/songs'}, function() {
     this.resource('song', {path: '/:song_id'});
   });
 
