@@ -22,11 +22,12 @@
   {{view "select"
     content=userPlaylists
     selection=selectedPlaylist
-    optionValuePath="userPlaylists.id"
+    optionValuePath="content.id"
     optionLabelPath="content.name"
     prompt="Select a Playlist"
   }}
 </div>
+
 {{#if selectedPlaylist}}
   <h4><strong>Step 3 - Input Link to SoundCloud Song :</strong></h4>
 {{else}}

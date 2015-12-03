@@ -6,9 +6,8 @@ export default Ember.Controller.extend({
   userPlaylists: null,
   selectedPlaylist: null,
 
-  setUserPlaylists: function() {
+  getUserPlaylists: function() {
     Ember.run.once(this, 'getPlaylists');
-
   }.observes('selectedUser'),
 
   getPlaylists: function() {
@@ -40,21 +39,39 @@ export default Ember.Controller.extend({
 
       SC.get('/resolve', {url: songURL}, track => {
         if (track.errors && track.errors.length) {
-          this.set('errors', [{attr: "url", message: "Invalid SoundCloud URL"}]);
+          this.set('errors', [{attr: "url", message: "*Invalid SoundCloud URL"}]);
         }
         else {
-          var newSuggestion = this.store.createRecord('song', {
-            url: track.permalink_url,
-            artist: track.user.username,
-            title: track.title,
-            track_id: track.id
-          });
+          var current_user = this.store.find('user').then(users => {
+            return users.findBy('uid', this.get('auth').current_uid);
+          }).then(user => {
+            var newSuggestion = this.store.createRecord('song', {
+              url: track.permalink_url,
+              artist: track.user.username,
+              title: track.title,
+              track_id: track.id,
+              recommended_by: current_user.name,
+              recommended_on: new Date()
+            });
+
+            newSuggestion.save().then((suggestion) => {
+              debugger;
+              this.selectedPlaylist.get('songs').then((songs) => {
+                songs.pushObject(newSuggestion);
+                this.selectedPlaylist.save().then(() => {
+                  this.transitionToRoute('success');
+                });
+              });
+            }.bind(this));
+          }.bind(this));
+
+
 
           // trackInfo = SC.get('/resolve', {url: songURL+'#client_id=e0d5f2931e81cf14facf65268cd656e0'});
           // newSuggestion.set('songName', track.title);
-          newSuggestion.save();
+          // newSuggestion.save();
           this.set('suggestion', '');
-          this.transitionToRoute('/');
+          // this.transitionToRoute('/');
 
 
         }

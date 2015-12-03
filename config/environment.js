@@ -20,7 +20,7 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "object-src",
-      'object-src': "'self' ''",
+      'object-src': "'self'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.soundcloud.com https://*.firebaseio.com",
       'font-src': "'self'",
       'connect-src': "'self' wss://*.firebaseio.com https://*.firebase.com http://*.soundcloud.com https://*.soundcloud.com",
