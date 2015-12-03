@@ -1,5 +1,11 @@
 <h3>Songs in <strong>{{model.name}}</strong> include:</h3>
 
+{{#each song in model.songs}}
+  <li>{{#link-to 'song' song.id}}{{song.title}}{{/link-to}} - {{song.id}}</li>
+{{/each}}
+
+{{outlet}}
+
 <!-- {{#each playlist in model}}
   <li>{{playlist.name}}</li>
 {{/each}} -->

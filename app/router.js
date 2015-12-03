@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('songs', {path: '/'}, function() {
-    this.resource('song', {path: 'songs/:song_id'});
+    this.resource('song', {path: '/:song_id'});
   });
 
   this.route('new-song');
@@ -19,7 +19,9 @@ Router.map(function() {
   this.resource('user', {path: 'users/:uid'});
 
   this.resource('playlists', function() {
-    this.resource('playlist', {path: 'playlists/:playlist_id'});
+    this.resource('playlist', {path: '/:playlist_id'}, function() {
+      this.resource('song', {path: '/:song_id'});
+    });
   });
 
 });
