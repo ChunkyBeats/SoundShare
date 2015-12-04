@@ -9,7 +9,7 @@ Router.map(function() {
   this.resource('welcome', {path: '/'});
 
   this.resource('songs', {path: '/songs'}, function() {
-    this.resource('song', {path: '/:song_id'});
+    this.resource('quickplay', {path: '/:song_id'});
   });
 
   this.route('new-song');

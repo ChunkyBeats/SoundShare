@@ -19,7 +19,7 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'default-src': "object-src",
+      'default-src': "",
       'object-src': "'self'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.soundcloud.com https://*.firebaseio.com",
       'font-src': "'self'",

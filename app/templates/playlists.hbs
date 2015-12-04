@@ -1,14 +1,17 @@
-<div class="row">
-  <div class="col-md-2">
-    <h3>Playlists</h3>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Playlists</h3>
+      <ul>
+        {{#each playlist in model}}
+          <li><strong>{{#link-to 'playlist' playlist.id}}{{playlist.name}}{{/link-to}}</strong></li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-10">
+      {{outlet}}
+    </div>
+  </div>
 
 
-  </div>
-  <div class="col-md-10">
-    {{#each playlist in model}}
-      <li>{{#link-to 'playlist' playlist.id}}{{playlist.name}}{{/link-to}}</li>
-    {{/each}}
-  </div>
 </div>
-
-{{outlet}}

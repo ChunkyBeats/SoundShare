@@ -1,0 +1,25 @@
+.wrapper {
+  /*padding: 10px;
+  background: #DCDDDE;
+  border-radius: 15px;*/
+
+  li {
+
+  }
+
+  hr {
+    border-color: black;
+  }
+}
+
+h3 {
+  /*text-align: center;*/
+}
+
+hr {
+  border-color: black;
+}
+
+ul {
+  list-style-type: none;
+}

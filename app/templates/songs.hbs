@@ -1,6 +1,6 @@
 <ul>
   {{#each song in model}}
-    <li>{{song.artist}} - {{song.title}} : {{#link-to 'song' song.id}}{{song.url}}{{/link-to}}</li>
+    <li>{{song.artist}} - {{song.title}} : {{#link-to 'quickplay' song.id}}{{song.url}}{{/link-to}}</li>
   {{/each}}
 </ul>
 
