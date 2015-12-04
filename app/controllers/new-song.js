@@ -22,13 +22,6 @@ export default Ember.Controller.extend({
     }.bind(this));
   },
 
-  // getPlaylists: function() {
-  //   this.get('auth').get('firebase').child('playlists').on('value', function(snapshot) {
-  //     debugger;
-  //     console.log(snapshot);
-  //   });
-  // },
-
   clearErrors: function() {
     this.set('errors', null);
   }.observes('suggestion'),
