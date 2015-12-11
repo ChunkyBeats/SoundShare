@@ -28,6 +28,28 @@ export default Ember.Controller.extend({
 
         });
       }
+    },
+
+    facebookSignup: function() {
+      var ref = new Firebase("https://flickering-inferno-7180.firebaseio.com");
+      var self = this;
+      ref.authWithOAuthPopup("facebook", function(error, authData) {
+        if (error) {
+          console.log("Sign Up Failed : ", error);
+        } else {
+          debugger;
+          var new_user = self.store.createRecord('user', {
+            username: authData.facebook.displayName,
+            uid: authData.uid,
+            email: authData.facebook.email,
+            created_on: new Date()
+          }).save();
+          self.transitionToRoute('login');
+        }
+      }, {
+        scope:"email"
+      });
     }
+
   }
 });
