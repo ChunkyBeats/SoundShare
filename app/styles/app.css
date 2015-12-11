@@ -4,19 +4,8 @@ body {
   margin-top: 70px;
   background-image: url('/assets/images/wallpaperedit.jpg');
   background-size: cover;
-}
 
-/*.container {
-  position: absolute; top:60px; left:0px; width:100%; height:100%;
-        background:transparent;
-        background: linear-gradient(top, rgba( 255, 255, 255, 255 ) 0%, rgba( 255, 255, 255, 0 ) 100% );
-        background: -moz-linear-gradient(top, rgba( 255, 255, 255, 1) 0%, rgba( 255, 255, 255, 0 ) 100% );
-        background: -ms-linear-gradient(top, rgba( 255, 255, 255, 1 ) 0%, rgba( 255, 255, 255, 0 ) 100% );
-        background: -o-linear-gradient( top, rgba( 255, 255, 255, 1 ) 0%, rgba( 255, 255, 255, 0 ) 100% );
-        background: -webkit-linear-gradient( top, rgba( 255, 255, 255, 1 ) 0%, rgba( 255, 255, 255, 0 ) 100% );
-        -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#550000FF, endColorstr=#550000FF);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#ffffffff);
-}*/
+}
 
 .connect {
   padding-top: 15px;
