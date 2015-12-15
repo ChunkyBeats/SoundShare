@@ -43,7 +43,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+App is currently deployed, and running at: [https://flickering-inferno-7180.firebaseapp.com](https://flickering-inferno-7180.firebaseapp.com).
 
 ## Further Reading / Useful Links
 
