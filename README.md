@@ -2,8 +2,14 @@
 
 ![alt tag](http://i.imgur.com/1gHOdQI.jpg)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+SoundShare is a way to quickly share songs, and see what songs have been
+shared with you, between you and your friends.  Just follow these simple steps:
+1) Create Account
+2) Select friend, a playlist, and insert a SoundCloud link
+3) ???
+4) Profit.
+
+Repeat Step 2 as many times as wanted!
 
 ## Prerequisites
 
@@ -44,6 +50,15 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Deploying
 
 App is currently deployed, and running at: [https://flickering-inferno-7180.firebaseapp.com](https://flickering-inferno-7180.firebaseapp.com).
+
+## Future Updates
+* Create friends for added privacy
+* Search your Facebook friends for SoundShare users
+* Better Time Stamps
+* Notifications (Email / In App)
+* Add Spotify functionality
+* CSS bug fixes
+* Platform scalability
 
 ## Further Reading / Useful Links
 
