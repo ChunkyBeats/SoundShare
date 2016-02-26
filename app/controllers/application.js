@@ -21,7 +21,6 @@ export default Ember.Controller.extend({
     },
     logOut: function() {
       this.get('auth').logout();
-      localStorage.clear();
       this.transitionToRoute('/');
     }
   }

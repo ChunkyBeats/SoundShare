@@ -12,5 +12,9 @@ export default DS.Model.extend({
   playlists: DS.hasMany('playlist', {
     async: true,
     inverse: 'users'
+  }),
+
+  friends: DS.hasMany('user', {
+    inverse: null
   })
 });
